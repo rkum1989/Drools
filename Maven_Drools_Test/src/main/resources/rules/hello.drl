@@ -1,0 +1,21 @@
+//created on: Feb 2, 2017
+package rules;
+import com.rituraj.drolls.Maven_Drools_Test.DroolsIntroduction;
+//list any import classes here.
+
+
+
+//declare any global variables here
+
+
+global String topicLevel
+rule "Drools Introduction"
+when
+$droolsIntro : DroolsIntroduction( topic == "Drools" )
+then
+System.out.println($droolsIntro.introduceYourself() + ", topic level is " + getDefaultIfNull(topicLevel));
+end
+
+function String getDefaultIfNull(String topicLevel) {
+return topicLevel == null ? "Moderate" : topicLevel;
+}
